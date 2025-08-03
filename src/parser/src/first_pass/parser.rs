@@ -349,12 +349,12 @@ impl<'a> FirstPassParser<'a> {
         };
         let missing_percentage = 100.0 - (file_len as f32 / file_length_expected as f32 * 100.0);
         if missing_percentage > 10.0 {
-            return Err(DemoParserError::DemoEndsEarly(format!(
-                "demo ends early. Expected legth: {}, file lenght: {}. Missing: {:.2}%",
-                file_length_expected,
-                file_len,
-                100.0 - (file_len as f32 / file_length_expected as f32 * 100.0),
-            )));
+//             return Err(DemoParserError::DemoEndsEarly(format!(
+//                 "demo ends early. Expected legth: {}, file lenght: {}. Missing: {:.2}%",
+//                 file_length_expected,
+//                 file_len,
+//                 100.0 - (file_len as f32 / file_length_expected as f32 * 100.0),
+//             )));
         }
         // seems to be byte offset to where DEM_END command happens. After that comes Spawngroups and fileinfo. odd...
         let _no_clue_what_this_is = match bytes[8..12].try_into() {
